@@ -6,7 +6,6 @@
     <title>Angely Crochet - Tejidos con Amor y Calidez</title>
     <meta name="description" content="Descubre prendas, accesorios y amigurumis tejidos a mano por Angely Crochet. Piezas únicas, hechas con amor y dedicación.">
     <link rel="icon" href="favicon/favicon.ico" sizes="any">
-    <link rel="icon" href="favicon/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="favicon/favicon-96x96.png" type="image/png" sizes="96x96">
     <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png">
     <link rel="manifest" href="favicon/site.webmanifest">
@@ -14,6 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet"></noscript>
+    <link rel="preload" href="fondos/fondo%20beige.jpg" as="image" fetchpriority="high">
     <link rel="preload" href="logo/logo-empresa.png" as="image" fetchpriority="high">
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest" defer onload="lucide.createIcons()"></script>
@@ -2102,7 +2102,7 @@
     <header>
         <nav class="navbar">
             <div class="logo">
-                <img src="logo/isotipo del logo.png" alt="Isotipo Angely Crochet" width="1920" height="1920">
+                <img src="logo/isotipo-optimizado.png" alt="Isotipo Angely Crochet" width="128" height="128">
                 <span>Angely Crochet</span>
             </div>
             <ul class="nav-links">
@@ -2439,37 +2439,37 @@
         renderIcons();
 
         const products = [
-            { id: 1, name: "Ositos Cafés C/U", category: "amigurumis", price: 85.000, image: "imagenes/Foto_Amigurumi8.jpg", featured: true },
-            { id: 2, name: "Ropa para bebé", category: "ropa", price: 120.000, image: "imagenes/Foto_Ropa3.jpg", featured: true },
-            { id: 3, name: "Aretes Tejidos", category: "ropa", price: 18.000, image: "imagenes/Foto_Accesorio1.jpg", featured: true },
-            { id: 4, name: "Perro Amigurumi", category: "amigurumis", price: 85.000, image: "imagenes/Foto_Amigurumi12-optimizada.jpg", featured: true },
-            { id: 5, name: "Amigurumi Tortuga Ninja", category: "amigurumis", price: 85.000, image: "imagenes/Foto_Amigurumi1.jpg", featured: true },
-            { id: 6, name: "Kit Amigurumis de Zorros", category: "amigurumis", price: 92.000, image: "imagenes/Foto_Pelucheparabebé1.jpg", featured: true },
-            { id: 7, name: "Manta Tejida", category: "ropa", price: 55.000, image: "imagenes/Foto_Manta1.gif", featured: true },
-            { id: 9, name: "Amigurumi de One Piece", category: "amigurumis", price: 38.000, image: "imagenes/Foto_Amigurumi3.jpg" },
-            { id: 10, name: "Flor Tejida", category: "ropa", price: 12.000, image: "imagenes/Foto_Flores1.jpg" },
-            { id: 11, name: "Amigurumi Goku", category: "amigurumis", price: 120.000, image: "imagenes/Foto_Amigurumi4.jpg" },
-            { id: 12, name: "Juguete para Bebé", category: "ropa", price: 32.000, image: "imagenes/Foto_Pelucheparabebé2.jpg" },
-            { id: 13, name: "Manta Tejida C/U", category: "ropa", price: 75.000, image: "imagenes/Foto_Manta2.jpg" },
-            { id: 14, name: "Bolso tigre", category: "ropa", price: 14.000, image: "imagenes/Foto_Accesorio3.jpg" },
-            { id: 15, name: "llaveros Bob Esponja", category: "ropa", price: 38.000, image: "imagenes/Foto_Amigurumi5.jpg" },
-            { id: 16, name: "Set de Flores Tejidas", category: "ropa", price: 20.000, image: "imagenes/Foto_Flores2.jpg" },
-            { id: 17, name: "Amigurumi Niño Jesús", category: "amigurumis", price: 30.000, image: "imagenes/Foto_Amigurumi6.jpg" },
-            { id: 18, name: "Peluche para bebé", category: "ropa", price: 34.000, image: "imagenes/Foto_Pelucheparabebé3.jpg" },
-            { id: 19, name: "Set ropa bebé", category: "ropa", price: 58.000, image: "imagenes/Foto_ropa1.jpg" },
-            { id: 20, name: "Amigurumi Caballo y unicornio", category: "amigurumis", price: 29.000, image: "imagenes/foto_amigurumi15.jpg" },
-            { id: 21, name: "Amigurumi Principito", category: "amigurumis", price: 45.000, image: "imagenes/Foto_Amigurumi2.jpg", featured: true },
-            { id: 22, name: "Recordatorio grado", category: "ropa", price: 68.000, image: "imagenes/Foto_Amigurumi7.jpg", featured: true },
-            { id: 23, name: "Amigurumi Barco", category: "amigurumis", price: 52.000, image: "imagenes/Foto_Amigurumi9.jpg" },
-            { id: 24, name: "Amigurumi canguro", category: "amigurumis", price: 75.000, image: "imagenes/Foto_Amigurumi10.jpg" },
-            { id: 25, name: "Amigurumi Ositas", category: "amigurumis", price: 82.000, image: "imagenes/Foto_Amigurumi11.jpg" },
-            { id: 26, name: "Amigurumi Conejo", category: "amigurumis", price: 90.000, image: "imagenes/Foto_Amigurumi13.png" },
-            { id: 27, name: "Amigurumi Pocoyo", category: "amigurumis", price: 48.000, image: "imagenes/Foto_Amigurumi14.jpg" },
-            { id: 28, name: "Manta de Colores", category: "ropa", price: 85.000, image: "imagenes/Foto_Manta3.gif" },
-            { id: 29, name: "Bolso Tejido", category: "ropa", price: 42.000, image: "imagenes/Foto_Accesorio2.jpg" },
-            { id: 30, name: "Flores para Regalo", category: "ropa", price: 25.000, image: "imagenes/Foto_Flores3.jpg" },
-            { id: 31, name: "Set de Flores", category: "ropa", price: 28.000, image: "imagenes/Foto_Flores4.jpg" },
-            { id: 32, name: "Portalápices Tejido", category: "ropa", price: 70.000, image: "imagenes/Foto_Portalapiceros1.jpg" }
+            { id: 1, name: "Ositos Cafés C/U", category: "amigurumis", price: 85.000, image: "imagenes/optimizadas/Foto_Amigurumi8.jpg", featured: true },
+            { id: 2, name: "Ropa para bebé", category: "ropa", price: 120.000, image: "imagenes/optimizadas/Foto_Ropa3.jpg", featured: true },
+            { id: 3, name: "Aretes Tejidos", category: "ropa", price: 18.000, image: "imagenes/optimizadas/Foto_Accesorio1.jpg", featured: true },
+            { id: 4, name: "Perro Amigurumi", category: "amigurumis", price: 85.000, image: "imagenes/optimizadas/Foto_Amigurumi12-optimizada.jpg", featured: true },
+            { id: 5, name: "Amigurumi Tortuga Ninja", category: "amigurumis", price: 85.000, image: "imagenes/optimizadas/Foto_Amigurumi1.jpg", featured: true },
+            { id: 6, name: "Kit Amigurumis de Zorros", category: "amigurumis", price: 92.000, image: "imagenes/optimizadas/Foto_Pelucheparabebé1.jpg", featured: true },
+            { id: 7, name: "Manta Tejida", category: "ropa", price: 55.000, image: "imagenes/optimizadas/Foto_Manta1.jpg", featured: true },
+            { id: 9, name: "Amigurumi de One Piece", category: "amigurumis", price: 38.000, image: "imagenes/optimizadas/Foto_Amigurumi3.jpg" },
+            { id: 10, name: "Flor Tejida", category: "ropa", price: 12.000, image: "imagenes/optimizadas/Foto_Flores1.jpg" },
+            { id: 11, name: "Amigurumi Goku", category: "amigurumis", price: 120.000, image: "imagenes/optimizadas/Foto_Amigurumi4.jpg" },
+            { id: 12, name: "Juguete para Bebé", category: "ropa", price: 32.000, image: "imagenes/optimizadas/Foto_Pelucheparabebé2.jpg" },
+            { id: 13, name: "Manta Tejida C/U", category: "ropa", price: 75.000, image: "imagenes/optimizadas/Foto_Manta2.jpg" },
+            { id: 14, name: "Bolso tigre", category: "ropa", price: 14.000, image: "imagenes/optimizadas/Foto_Accesorio3.jpg" },
+            { id: 15, name: "llaveros Bob Esponja", category: "ropa", price: 38.000, image: "imagenes/optimizadas/Foto_Amigurumi5.jpg" },
+            { id: 16, name: "Set de Flores Tejidas", category: "ropa", price: 20.000, image: "imagenes/optimizadas/Foto_Flores2.jpg" },
+            { id: 17, name: "Amigurumi Niño Jesús", category: "amigurumis", price: 30.000, image: "imagenes/optimizadas/Foto_Amigurumi6.jpg" },
+            { id: 18, name: "Peluche para bebé", category: "ropa", price: 34.000, image: "imagenes/optimizadas/Foto_Pelucheparabebé3.jpg" },
+            { id: 19, name: "Set ropa bebé", category: "ropa", price: 58.000, image: "imagenes/optimizadas/Foto_ropa1.jpg" },
+            { id: 20, name: "Amigurumi Caballo y unicornio", category: "amigurumis", price: 29.000, image: "imagenes/optimizadas/foto_amigurumi15.jpg" },
+            { id: 21, name: "Amigurumi Principito", category: "amigurumis", price: 45.000, image: "imagenes/optimizadas/Foto_Amigurumi2.jpg", featured: true },
+            { id: 22, name: "Recordatorio grado", category: "ropa", price: 68.000, image: "imagenes/optimizadas/Foto_Amigurumi7.jpg", featured: true },
+            { id: 23, name: "Amigurumi Barco", category: "amigurumis", price: 52.000, image: "imagenes/optimizadas/Foto_Amigurumi9.jpg" },
+            { id: 24, name: "Amigurumi canguro", category: "amigurumis", price: 75.000, image: "imagenes/optimizadas/Foto_Amigurumi10.jpg" },
+            { id: 25, name: "Amigurumi Ositas", category: "amigurumis", price: 82.000, image: "imagenes/optimizadas/Foto_Amigurumi11.jpg" },
+            { id: 26, name: "Amigurumi Conejo", category: "amigurumis", price: 90.000, image: "imagenes/optimizadas/Foto_Amigurumi13.jpg" },
+            { id: 27, name: "Amigurumi Pocoyo", category: "amigurumis", price: 48.000, image: "imagenes/optimizadas/Foto_Amigurumi14.jpg" },
+            { id: 28, name: "Manta de Colores", category: "ropa", price: 85.000, image: "imagenes/optimizadas/Foto_Manta3.jpg" },
+            { id: 29, name: "Bolso Tejido", category: "ropa", price: 42.000, image: "imagenes/optimizadas/Foto_Accesorio2.jpg" },
+            { id: 30, name: "Flores para Regalo", category: "ropa", price: 25.000, image: "imagenes/optimizadas/Foto_Flores3.jpg" },
+            { id: 31, name: "Set de Flores", category: "ropa", price: 28.000, image: "imagenes/optimizadas/Foto_Flores4.jpg" },
+            { id: 32, name: "Portalápices Tejido", category: "ropa", price: 70.000, image: "imagenes/optimizadas/Foto_Portalapiceros1.jpg" }
         ];
 
         let cart = [];
