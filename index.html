@@ -2114,6 +2114,133 @@
                 margin-inline: 0.75rem;
             }
         }
+
+        .home-jingle-player {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            width: min(100%, 350px);
+            min-height: 58px;
+            margin-top: 1.8rem;
+            padding: 0.65rem 0.75rem;
+            border: none;
+            border-radius: 25px;
+            background: var(--naranja-principal);
+            box-shadow: 0 8px 18px rgba(230, 97, 39, 0.24);
+            transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .home-jingle-player:hover,
+        .home-jingle-player:focus-visible {
+            transform: translateY(-3px);
+            background: var(--cafe-oscuro);
+            box-shadow: 0 11px 24px rgba(74, 46, 27, 0.3), 0 0 0 3px rgba(253, 226, 208, 0.45);
+        }
+
+        .home-jingle-audio {
+            display: none;
+        }
+
+        .home-jingle-play,
+        .home-jingle-more {
+            display: inline-flex;
+            flex: 0 0 auto;
+            align-items: center;
+            justify-content: center;
+            width: 2.25rem;
+            height: 2.25rem;
+            padding: 0;
+            border: 0;
+            border-radius: 50%;
+            background: var(--beige-tarjeta);
+            color: var(--cafe-oscuro);
+            cursor: pointer;
+            font: inherit;
+            font-weight: 700;
+            box-shadow: inset 0 0 0 2px rgba(100, 40, 21, 0.22);
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .home-jingle-play:hover,
+        .home-jingle-more:hover,
+        .home-jingle-play:focus-visible,
+        .home-jingle-more:focus-visible {
+            background: var(--naranja-principal);
+            color: var(--blanco);
+            transform: scale(1.08);
+        }
+
+        .home-jingle-progress-wrap {
+            display: flex;
+            flex: 1;
+            min-width: 0;
+            align-items: center;
+            gap: 0.45rem;
+        }
+
+        .home-jingle-player .home-jingle-time {
+            display: inline-block;
+            flex: 0 0 auto;
+            min-width: 2.3rem;
+            text-align: center;
+            color: var(--cafe-oscuro);
+            font-size: 0.72rem;
+            font-variant-numeric: tabular-nums;
+            white-space: nowrap;
+        }
+
+        .home-jingle-player:hover .home-jingle-time,
+        .home-jingle-player:focus-visible .home-jingle-time {
+            color: var(--beige-tarjeta);
+        }
+
+        .home-jingle-progress {
+            width: 100%;
+            height: 0.35rem;
+            accent-color: var(--naranja-principal);
+            cursor: pointer;
+        }
+
+        .home-jingle-more-wrap {
+            position: relative;
+        }
+
+        .home-jingle-more {
+            background: var(--naranja-principal);
+            color: var(--beige-tarjeta);
+            font-size: 1rem;
+            letter-spacing: 0.08em;
+        }
+
+        .home-jingle-menu {
+            position: absolute;
+            right: 0;
+            bottom: calc(100% + 0.5rem);
+            min-width: 150px;
+            padding: 0.35rem;
+            border: 1px solid var(--beige-tarjeta);
+            border-radius: 10px;
+            background: var(--cafe-oscuro);
+            box-shadow: 0 8px 18px rgba(74, 46, 27, 0.25);
+        }
+
+        .home-jingle-menu[hidden] {
+            display: none;
+        }
+
+        .home-jingle-menu a {
+            display: block;
+            padding: 0.45rem 0.6rem;
+            color: var(--beige-tarjeta);
+            font-size: 0.82rem;
+            white-space: nowrap;
+        }
+
+        .home-jingle-menu a:hover,
+        .home-jingle-menu a:focus-visible {
+            border-radius: 6px;
+            background: var(--naranja-principal);
+        }
     </style>
 </head>
 <body>
@@ -2158,9 +2285,24 @@
         <div class="hero-text">
             <h1>Creado a mano con <span>pasión y ternura</span></h1>
             <p>Descubre prendas, accesorios y amigurumis únicos diseñados con los mejores materiales en tonalidades cálidas para acompañar tus momentos especiales.</p>
-            <a href="#catalogo" class="btn-primary">
-                Ver Colección <i data-lucide="arrow-right"></i>
-            </a>
+            <div class="home-jingle-player" role="group" aria-label="Reproductor del jingle de Angely Crochet">
+                <audio class="home-jingle-audio" preload="metadata">
+                <source src="videos/JINGLE.mpeg" type="audio/mpeg">
+                Tu navegador no puede reproducir este audio.
+                </audio>
+                <button class="home-jingle-play" type="button" aria-label="Reproducir jingle">&#9654;</button>
+                <div class="home-jingle-progress-wrap">
+                    <span class="home-jingle-time" data-jingle-current>0:00</span>
+                    <input class="home-jingle-progress" type="range" min="0" max="100" value="0" step="0.1" aria-label="Progreso del jingle">
+                    <span class="home-jingle-time" data-jingle-duration>0:00</span>
+                </div>
+                <div class="home-jingle-more-wrap">
+                    <button class="home-jingle-more" type="button" aria-label="Más opciones" aria-expanded="false">&bull;&bull;&bull;</button>
+                    <div class="home-jingle-menu" hidden>
+                        <a href="videos/JINGLE.mpeg" download>Descargar jingle</a>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="hero-image">
             <img src="logo/logo-empresa.png" alt="Logo Angely Crochet" width="842" height="595" fetchpriority="high" decoding="async">
@@ -3078,6 +3220,73 @@
             });
             // inicial
             checkScroll();
+        })();
+
+        // Reproductor personalizado del jingle
+        (function(){
+            const player = document.querySelector('.home-jingle-player');
+            if (!player) return;
+
+            const audio = player.querySelector('.home-jingle-audio');
+            const playButton = player.querySelector('.home-jingle-play');
+            const progress = player.querySelector('.home-jingle-progress');
+            const currentTime = player.querySelector('[data-jingle-current]');
+            const duration = player.querySelector('[data-jingle-duration]');
+            const moreButton = player.querySelector('.home-jingle-more');
+            const menu = player.querySelector('.home-jingle-menu');
+
+            function formatTime(seconds) {
+                if (!Number.isFinite(seconds)) return '0:00';
+                const minutes = Math.floor(seconds / 60);
+                const remainingSeconds = Math.floor(seconds % 60).toString().padStart(2, '0');
+                return `${minutes}:${remainingSeconds}`;
+            }
+
+            function updateProgress() {
+                const percentage = audio.duration ? (audio.currentTime / audio.duration) * 100 : 0;
+                progress.value = percentage;
+                progress.style.background = `linear-gradient(to right, var(--naranja-principal) ${percentage}%, var(--beige-tarjeta) ${percentage}%)`;
+                currentTime.textContent = formatTime(audio.currentTime);
+            }
+
+            playButton.addEventListener('click', () => {
+                if (audio.paused) audio.play();
+                else audio.pause();
+            });
+
+            audio.addEventListener('play', () => {
+                playButton.innerHTML = '&#10074;&#10074;';
+                playButton.setAttribute('aria-label', 'Pausar jingle');
+            });
+
+            audio.addEventListener('pause', () => {
+                playButton.innerHTML = '&#9654;';
+                playButton.setAttribute('aria-label', 'Reproducir jingle');
+            });
+
+            audio.addEventListener('loadedmetadata', () => {
+                duration.textContent = formatTime(audio.duration);
+                updateProgress();
+            });
+
+            audio.addEventListener('timeupdate', updateProgress);
+            audio.addEventListener('ended', updateProgress);
+            progress.addEventListener('input', () => {
+                if (audio.duration) audio.currentTime = (progress.value / 100) * audio.duration;
+            });
+
+            moreButton.addEventListener('click', () => {
+                const isOpen = !menu.hidden;
+                menu.hidden = isOpen;
+                moreButton.setAttribute('aria-expanded', String(!isOpen));
+            });
+
+            document.addEventListener('click', event => {
+                if (!player.contains(event.target)) {
+                    menu.hidden = true;
+                    moreButton.setAttribute('aria-expanded', 'false');
+                }
+            });
         })();
     </script>
 </body>
