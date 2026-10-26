@@ -80,14 +80,12 @@
         .scroll-reveal {
             opacity: 0;
             transform: translateY(30px);
-            filter: blur(3px);
-            transition: opacity 0.75s ease, transform 0.75s ease, filter 0.75s ease;
+            transition: opacity 0.75s ease, transform 0.75s ease;
         }
 
         .scroll-reveal.is-visible {
             opacity: 1;
             transform: translateY(0);
-            filter: blur(0);
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -95,7 +93,6 @@
             .scroll-reveal.is-visible {
                 opacity: 1;
                 transform: none;
-                filter: none;
                 transition: none;
             }
         }
@@ -2271,7 +2268,7 @@
                 <a href="#registro" class="btn-register" aria-label="Registrarse" style="display:inline-flex; align-items:center; justify-content:center;">
                     <i data-lucide="user"></i>
                 </a>
-                <button class="cart-icon-btn" onclick="toggleCart()">
+                <button class="cart-icon-btn" onclick="toggleCart()" aria-label="Abrir carrito de compras">
                     <i data-lucide="shopping-bag"></i>
                     <span class="cart-count" id="cart-count" hidden>0</span>
                 </button>
@@ -2286,7 +2283,7 @@
             <h1>Creado a mano con <span>pasión y ternura</span></h1>
             <p>Descubre prendas, accesorios y amigurumis únicos diseñados con los mejores materiales en tonalidades cálidas para acompañar tus momentos especiales.</p>
             <div class="home-jingle-player" role="group" aria-label="Reproductor del jingle de Angely Crochet">
-                <audio class="home-jingle-audio" preload="metadata">
+                <audio class="home-jingle-audio" preload="none">
                 <source src="videos/JINGLE.mpeg" type="audio/mpeg">
                 Tu navegador no puede reproducir este audio.
                 </audio>
@@ -2323,7 +2320,7 @@
                     <i data-lucide="x"></i>
                 </button>
                 <h3>Cómo inició</h3>
-                <video controls preload="metadata" aria-label="Video sobre cómo inició Angely Crochet">
+                <video controls preload="none" aria-label="Video sobre cómo inició Angely Crochet">
                     <source src="videos/como%20inicio.mp4" type="video/mp4">
                     Tu navegador no puede reproducir este video.
                 </video>
@@ -2333,7 +2330,7 @@
                     <i data-lucide="x"></i>
                 </button>
                 <h3>Nuestra historia</h3>
-                <video controls preload="metadata" aria-label="Video sobre la historia de Angely Crochet">
+                <video controls preload="none" aria-label="Video sobre la historia de Angely Crochet">
                     <source src="videos/historia.mp4" type="video/mp4">
                     Tu navegador no puede reproducir este video.
                 </video>
@@ -2643,12 +2640,13 @@
             container.innerHTML = '';
             
             items.forEach(product => {
+                const thumbnail = product.image.replace('imagenes/optimizadas/', 'imagenes/miniaturas/');
                 const card = document.createElement('div');
                 card.className = 'product-card';
                 card.innerHTML = `
                     <div class="product-img">
                         <button type="button" onclick="openImageModal('${product.image}', '${product.name.replace(/'/g, "\\'")}')" aria-label="Ampliar imagen de ${product.name}">
-                            <img src="${product.image}" alt="${product.name}" loading="lazy" decoding="async">
+                            <img src="${thumbnail}" alt="${product.name}" loading="lazy" decoding="async">
                         </button>
                     </div>
                     <div>
@@ -2883,7 +2881,7 @@
                         <strong>${item.name}</strong>
                         <div>$${item.price.toFixed(3)}</div>
                     </div>
-                    <button onclick="removeFromCart(${index})" style="background:none; border:none; color: red; cursor:pointer;">
+                    <button onclick="removeFromCart(${index})" aria-label="Quitar ${item.name} del carrito" style="background:none; border:none; color: red; cursor:pointer;">
                         <i data-lucide="trash-2" style="width: 18px;"></i>
                     </button>
                 `;
