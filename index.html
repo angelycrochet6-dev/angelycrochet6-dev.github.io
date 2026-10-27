@@ -1538,7 +1538,7 @@
         /* --- BOTÓN FLOTANTE DE WHATSAPP --- */
         .whatsapp-float {
             position: fixed;
-            bottom: var(--floating-button-bottom);
+inioa            bottom: var(--floating-button-bottom);
             right: var(--floating-button-right);
             background-color: var(--whatsapp);
             color: var(--blanco);
@@ -2640,13 +2640,12 @@
             container.innerHTML = '';
             
             items.forEach(product => {
-                const thumbnail = product.image.replace('imagenes/optimizadas/', 'imagenes/miniaturas/');
                 const card = document.createElement('div');
                 card.className = 'product-card';
                 card.innerHTML = `
                     <div class="product-img">
                         <button type="button" onclick="openImageModal('${product.image}', '${product.name.replace(/'/g, "\\'")}')" aria-label="Ampliar imagen de ${product.name}">
-                            <img src="${thumbnail}" alt="${product.name}" loading="lazy" decoding="async">
+                            <img src="${product.image}" alt="${product.name}" loading="lazy" decoding="async">
                         </button>
                     </div>
                     <div>
